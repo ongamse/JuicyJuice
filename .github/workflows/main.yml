@@ -19,7 +19,7 @@ jobs:
         java-version: 11
 
     - name: NPM Install
-      run: npm install
+      run: npm build
     
     - name: Download QwietAI CLI
       run: |
@@ -30,7 +30,7 @@ jobs:
         ${GITHUB_WORKSPACE}/sl --version
         ${GITHUB_WORKSPACE}/sl analyze --strict --wait \
           --app QwietAI-Juicy \
-          --tag branch=${{ github.head_ref }} jssrc. -- --include=tests
+          --tag branch=${{ github.head_ref }}
       env:
         SHIFTLEFT_ACCESS_TOKEN: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
 
